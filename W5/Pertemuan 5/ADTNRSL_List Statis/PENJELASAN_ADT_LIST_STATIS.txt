@@ -1,0 +1,41 @@
+PENJELASAN ADT LIST STATIS (VERSI SANTAI)
+
+1. Apa itu ADT?
+ADT (Abstract Data Type) itu konsep struktur data + operasi yang bisa dilakukan.
+Contoh operasi list: insert, delete, search, print.
+Jadi yang penting bukan cuma datanya, tapi juga aturan cara ngolah datanya.
+
+2. Apa itu List Statis?
+List statis adalah list yang disimpan di array ukuran tetap.
+Di sini ukuran maksimum = MaxEl (100).
+
+3. Kenapa ada field "next" padahal ini array?
+Supaya array bisa berperilaku seperti linked list.
+Setiap elemen simpan index elemen berikutnya.
+- next = Nil (-1) artinya tidak ada lanjutan.
+- first menyimpan index awal list.
+
+4. Contoh sederhana
+Misal:
+first = 2
+A[2].info = 10, A[2].next = 5
+A[5].info = 20, A[5].next = 7
+A[7].info = 30, A[7].next = -1
+Berarti isi list: 10 -> 20 -> 30
+
+5. Kelebihan list statis
+- Tidak perlu malloc/free pointer asli.
+- Cocok untuk latihan konsep linked via index.
+
+6. Kekurangan list statis
+- Kapasitas terbatas (maks 100 di kode ini).
+- Kalau penuh, alokasi gagal.
+
+7. Alur operasi yang penting
+- Insert: ambil slot kosong, isi info, sambungkan next.
+- Delete: putus sambungan node dari rantai, lalu reset slot.
+- Search: telusuri dari first sampai Nil.
+
+8. Tips belajar
+- Gambarkan array + panah index di kertas.
+- Latihan manual untuk insert dan delete biar paham urutan next.

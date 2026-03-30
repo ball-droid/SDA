@@ -1,0 +1,44 @@
+PENJELASAN ADT LINKED LIST + POINTER (VERSI DASAR)
+
+1. Apa itu ADT?
+ADT itu tipe data abstrak: gabungan data + operasi.
+Di linked list, datanya node, operasinya insert/delete/search/dll.
+
+2. Apa itu Linked List?
+Linked list adalah kumpulan node yang saling terhubung pakai pointer.
+Setiap node punya:
+- info  : isi data
+- next  : alamat node berikutnya
+
+3. Pointer itu apa?
+Pointer adalah variabel yang menyimpan alamat memori.
+Di kode ini, pointer disimpan dalam tipe "address".
+Jadi address menunjuk ke node, bukan menyimpan isi datanya langsung.
+
+4. Arti First(L)
+First(L) adalah pointer ke node pertama list.
+Kalau First(L) = Nil (NULL), artinya list kosong.
+
+5. Kenapa perlu malloc dan free?
+- malloc: minta memori baru untuk node.
+- free  : balikin memori saat node sudah tidak dipakai.
+Kalau tidak di-free, bisa terjadi kebocoran memori (memory leak).
+
+6. Contoh visual
+First -> [10|*] -> [20|*] -> [30|Nil]
+Artinya isi list berurutan: 10, 20, 30.
+
+7. Cara kerja insert sederhana
+- InsertFirst: node baru jadi kepala list.
+- InsertLast: telusuri sampai node terakhir, lalu sambungkan.
+- InsertAfter: sisipkan node di tengah setelah node tertentu.
+
+8. Cara kerja delete sederhana
+- DelFirst: lepas node pertama, first pindah ke node kedua.
+- DelLast: cari node sebelum terakhir, putuskan sambungan.
+- DelP: cari nilai tertentu, lalu sambungan di-bypass.
+
+9. Tips cepat biar paham pointer
+- Sering gambar node dan panah di kertas.
+- Saat debugging, print isi node satu-satu dari First.
+- Fokus paham perubahan "next" setelah insert/delete.

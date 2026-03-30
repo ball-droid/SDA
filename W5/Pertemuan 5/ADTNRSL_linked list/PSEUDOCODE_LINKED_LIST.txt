@@ -1,0 +1,63 @@
+PSEUDOCODE ADT LINKED LIST (SINGLE)
+
+1) CreateList(L)
+   first <- Nil
+
+2) Alokasi(X)
+   P <- malloc node baru
+   jika P berhasil:
+      P.info <- X
+      P.next <- Nil
+   return P
+
+3) InsertFirst(L, P)
+   P.next <- first
+   first <- P
+
+4) InsertAfter(L, P, Prec)
+   P.next <- Prec.next
+   Prec.next <- P
+
+5) InsertLast(L, P)
+   jika list kosong:
+      first <- P
+   selain itu:
+      Last <- first
+      selama Last.next != Nil:
+         Last <- Last.next
+      Last.next <- P
+
+6) DelFirst(L, P)
+   P <- first
+   first <- first.next
+   P.next <- Nil
+
+7) DelLast(L, P)
+   jika list hanya 1 node:
+      P <- first
+      first <- Nil
+   selain itu:
+      Prec <- first
+      selama Prec.next.next != Nil:
+         Prec <- Prec.next
+      P <- Prec.next
+      Prec.next <- Nil
+
+8) DelP(L, X)
+   cari node bernilai X pakai (P, Prec)
+   jika ketemu:
+      jika Prec = Nil: first <- P.next
+      jika tidak: Prec.next <- P.next
+      dealokasi P
+
+9) Search(L, X)
+   P <- first
+   selama P != Nil:
+      jika P.info = X: return P
+      P <- P.next
+   return Nil
+
+10) DelAll(L)
+    selama list tidak kosong:
+       DelFirst(L, P)
+       DeAlokasi(P)

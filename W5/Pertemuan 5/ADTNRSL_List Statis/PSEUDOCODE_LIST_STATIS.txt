@@ -1,0 +1,66 @@
+PSEUDOCODE ADT LIST STATIS
+
+1) CreateList(L)
+   first <- Nil
+   untuk i = 0..MaxEl-1:
+      A[i].info <- 0
+      A[i].next <- Nil
+
+2) Alokasi(L, X)
+   untuk i = 0..MaxEl-1:
+      jika index i belum dipakai di rantai list:
+         A[i].info <- X
+         A[i].next <- Nil
+         return i
+   return Nil
+
+3) InsertFirst(L, P)
+   A[P].next <- first
+   first <- P
+
+4) InsertLast(L, P)
+   jika list kosong:
+      first <- P
+   selain itu:
+      Last <- first
+      selama A[Last].next != Nil:
+         Last <- A[Last].next
+      A[Last].next <- P
+   A[P].next <- Nil
+
+5) DelFirst(L, P)
+   P <- first
+   first <- A[P].next
+   A[P].next <- Nil
+
+6) DelLast(L, P)
+   jika elemen hanya satu:
+      P <- first
+      first <- Nil
+   selain itu:
+      Prec <- first
+      selama next dari next(Prec) != Nil:
+         Prec <- next(Prec)
+      P <- next(Prec)
+      next(Prec) <- Nil
+
+7) Search(L, X)
+   P <- first
+   selama P != Nil:
+      jika A[P].info == X:
+         return P
+      P <- A[P].next
+   return Nil
+
+8) DelP(L, X)
+   cari node bernilai X (pakai P dan Prec)
+   jika ketemu:
+      jika Prec = Nil: first digeser
+      jika tidak: next(Prec) loncat ke next(P)
+      node P dealokasi
+
+9) PrintInfo(L)
+   cetak "["
+   telusuri dari first sampai Nil
+   cetak tiap info dipisah koma
+   cetak "]"
